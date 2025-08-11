@@ -68,78 +68,58 @@ python c_match.py
 
 ---
 
-🧭 Controls & Input
-
-Valid batting / bowling inputs: 1, 2, 3, 4, 5, 6
-
-Valid overs: 1–10
-
-Valid wickets: 1–10
-
-Quit at any input prompt: q
-
-
+## 🧭 Controls & Input
+- Valid batting / bowling inputs: `1`, `2`, `3`, `4`, `5`, `6`
+- Valid overs: `1`–`10`
+- Valid wickets: `1`–`10`
+- Quit at any input prompt: `q`
 
 ---
 
-🧩 Code Structure (quick overview)
-
-cricket.py
-
-Core I/O helpers and a standalone batting mode (play_game_bf)
-
-Typing effect helper (effect) and clear screen helper (clear)
-
-Inputs for overs/wickets and toss helper
-
-
-c_match.py
-
-Imports helpers from cricket.py
-
-Implements play_over, play_game_1st, play_game_2nd and the overall match flow
-
-Prints match summary and decides result/winner
-
-
-
+## 🧩 Code Structure (quick overview)
+- `cricket.py`
+  - Core I/O helpers and a standalone batting mode (`play_game_bf`)
+  - Typing effect helper (`effect`) and clear screen helper (`clear`)
+  - Inputs for overs/wickets and toss helper
+- `c_match.py`
+  - Imports helpers from `cricket.py`
+  - Implements `play_over`, `play_game_1st`, `play_game_2nd` and the overall match flow
+  - Prints match summary and decides result/winner
 
 ---
 
-🖥 Example Gameplay (what you might see)
+## 🖥 Example Gameplay (what you might see)
 
-Hello and welcome to this simple cricket game!
+    Hello and welcome to this simple cricket game!
 
--------------THE RULES-------------
-At the toss, you can choose to bat or bowl first.
-...
-Enter the number of overs you want to play for (1-10)
->>> 2
-Enter the number of wickets you want to have (1-10)
->>> 2
-Please enter heads [1] or tails [2] (or q to quit)
->>> 1
-The coin landed on: tails
-You have lost the toss!
-The computer chose to bat first.
+    -------------THE RULES-------------
+    At the toss, you can choose to bat or bowl first.
+    ...
+    Enter the number of overs you want to play for (1-10)
+    >>> 2
+    Enter the number of wickets you want to have (1-10)
+    >>> 2
+    Please enter heads [1] or tails [2] (or q to quit)
+    >>> 1
+    The coin landed on: tails
+    You have lost the toss!
+    The computer chose to bat first.
 
-0-0 | 0.0
-Your shot (1-6): 4
-My number is 2!
-You've scored 4 runs!
+    0-0 | 0.0
+    Your shot (1-6): 4
+    My number is 2!
+    You've scored 4 runs!
 
---- MATCH SUMMARY ---
-First Innings: 42-2 (2.0 overs) (target set: 43)
-Second Innings: 38-2 (2.0 overs)
-The target has been successfully defended! The computer wins this match!
-Defeat by 5 runs
-Better luck next time!
-
+    --- MATCH SUMMARY ---
+    First Innings: 42-2 (2.0 overs) (target set: 43)
+    Second Innings: 38-2 (2.0 overs)
+    The target has been successfully defended! The computer wins this match!
+    Defeat by 5 runs
+    Better luck next time!
 
 ---
 
-✅ Requirements
-
-Python 3.x (no external packages required)
+## ✅ Requirements
+- Python 3.x (no external packages required)
 
 ---
