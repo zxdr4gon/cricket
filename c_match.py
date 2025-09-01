@@ -65,7 +65,7 @@ def play_over(score, wickets, over_num, total_wickets, user_batting, chasing, ma
                     return score, total_wickets, True, balls_played
 
             else:
-                effect(f"You've scored {shot} run{'s' if shot != 1 else ''}!")
+                effect(f"Computer scored {shot} run{'s' if shot != 1 else ''}!")
                 score+=shot
 
             if chasing:
@@ -79,7 +79,8 @@ def play_game_1st(over, total_wickets, user_batting):
     total, w_lost, overnum = 0, 0, 1
     total_balls = 0
 
-    chasing = True if user_batting else False
+    chasing = False
+
     for i in range(1, over + 1):
         total1, w_lost1, all_out, ball_played = play_over(total, total_wickets-w_lost, overnum, total_wickets, user_batting, chasing)
         total=total1
@@ -138,16 +139,24 @@ if __name__ == "__main__":
         effect("Game exited.")
         exit()
 
-    action = choose_action(toss())  # returns 'bat' or 'bowl'
-    user_batting = True if action == 'bat' else False
+        # Determine toss result
+    toss_winner = toss()  # 'user' or 'computer'
+    action = choose_action(toss_winner)  # 'bat' or 'bowl'
 
-    target, first_wickets_lost, first_balls, _ = play_game_1st(ask_overs_, ask_wickets_, user_batting)
+    # Figure out who actually bats first
+    if toss_winner == 'user':
+        user_batting_first = True if action == 'bat' else False
+    else:  # computer won toss
+        user_batting_first = False if action == 'bat' else True
+
+
+    target, first_wickets_lost, first_balls, _ = play_game_1st(ask_overs_, ask_wickets_, user_batting_first)
 
 
 
 
 
-    chasing_runs, chasing_wickets, chasing_balls, chased = play_game_2nd(ask_overs_, target + 1, not user_batting, ask_wickets_)
+    chasing_runs, chasing_wickets, chasing_balls, chased = play_game_2nd(ask_overs_, target + 1, not user_batting_first, ask_wickets_)
 
     # Calculate overs.balls for second innings
     overs = chasing_balls // 6
@@ -170,7 +179,7 @@ if __name__ == "__main__":
         effect("It's a tie!")
 
     #To check who won, player or the computer
-    elif user_batting:
+    elif user_batting_first:
         if chased:
             effect("The target has been chased down! The computer wins!")
             effect(f"Defeat by {ask_wickets_ - chasing_wickets} wicket{'s' if ask_wickets_ - chasing_wickets != 1 else ''}!")
