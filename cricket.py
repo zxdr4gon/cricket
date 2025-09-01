@@ -11,9 +11,8 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def effect(text, delay=0.04):
-    for char in text:
-        print(char, end='', flush=True)
-        time.sleep(delay)
+    
+    print(text)
     print()
 
 def intro():
