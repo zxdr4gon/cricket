@@ -1,125 +1,193 @@
+---
+
 # 🏏 Hand Cricket Game
 
-A simple, text‑based hand cricket game you can play in the terminal.  
-Play a quick batting-only over or a full match (with toss, chasing, wickets and match summary).
+A simple, text-based hand cricket game — playable either in the **Python terminal** or in a **retro-style web terminal** (via GitHub Pages).
 
 ---
 
-## 📂 Files
-- **`cricket.py`** — Batting-only / standalone innings mode. Includes:
-  - `intro()` — welcome & rules
-  - `ask_overs()` / `ask_wickets()` — user input helpers
-  - `play_over_bf()` / `play_game_bf()` — play one over / multiple overs (batting-focused)
-  - utility functions: `effect()`, `clear()`, `choose_action()`, etc.
-- **`c_match.py`** — Full match mode. Uses functions from `cricket.py` and implements:
-  - Toss and choice handling
-  - First and second innings logic (`play_game_1st`, `play_game_2nd`)
-  - Per-over play with `play_over(...)`
-  - Final match summary (winner, margin, tie handling)
+## 📂 Project Structure
+
+```
+/
+├── cricket.py        # Batting-only quick mode
+├── c_match.py        # Full match engine (toss → innings → chase → summary)
+├── docs/             # Web terminal version (for GitHub Pages)
+│   ├── index.html
+│   └── game.js
+└── README.md
+```
 
 ---
 
-## ⚙️ Features
-- Adjustable **overs** (1–10)
-- Adjustable **wickets** (1–10)
-- Toss system to decide who bats/bowls first
-- Batting-only quick mode (`cricket.py`) or full match (`c_match.py`)
-- Chase-aware second innings (shows runs required and balls remaining)
-- Real-time typing-style commentary (`effect()`)
-- Input validation and ability to quit any prompt with `q`
-- Match summary with overs.balls formatting and win/loss margins
+## 🎮 Play Online (Web Terminal)
+
+A browser-based version lives inside the `/docs` folder and runs through GitHub Pages.
+
+It features:
+
+* Retro green terminal UI
+* Blinking cursor
+* Smooth scrolling
+* Clear-screen animation
+* Match history saved in browser storage
+* Fully mobile-optimized input
+* Exact same gameplay rules as the Python version
+
+> If your repo is published with GitHub Pages, it will load at:
+> `https://yourusername.github.io/your-repo-name/`
 
 ---
 
-## 🎮 How to Play (Rules)
-- When **batting**, enter a number from **1–6**.
-  - If your number **matches** the computer’s number → **you're out** (wicket).
-  - If they don't match → you score that many runs.
-- When **bowling**, enter a number from **1–6**.
-  - If it matches the computer's bat number → you take a wicket.
-  - Otherwise, the computer scores that many runs.
-- Game ends when overs are completed or all wickets are lost.
-- During a chase, the game shows runs required and balls remaining.
-- At any text prompt, enter `q` to quit the game.
+## 📦 Python Files
+
+### **`cricket.py`**
+
+Batting-only, single-innings version.
+Includes:
+
+* `intro()`
+* `ask_overs()` / `ask_wickets()`
+* `play_over_bf()` / `play_game_bf()`
+* Terminal utilities (`effect`, `clear`)
+* `choose_action()` helper
 
 ---
 
-## ▶️ Running the Game
-1. Clone your repo (replace `yourusername` / repo name as needed):
-   ```bash
-   git clone https://github.com/yourusername/cricket.git
-   cd cricket
+### **`c_match.py`**
 
-2. Run batting-only (quick innings):
+Full match simulation with:
 
+* Toss
+* Bat / bowl decision
+* First innings
+* Target calculation
+* Second innings with chase logic
+* Automatic wicket / overs handling
+* Match summary with:
+
+  * Overs.balls formatting
+  * Win margins
+  * Tie detection
+
+---
+
+## ⚙️ Gameplay Features
+
+* Adjustable **overs** (1–10)
+* Adjustable **wickets** (1–10)
+* Toss system
+* Batting or bowling first
+* Chase-aware scoring
+* Ball-by-ball realistic hand cricket logic
+* Ability to quit any prompt with `q`
+* Clean match summary at the end
+
+---
+
+## 🧭 Controls
+
+**Valid inputs:**
+
+* Batting / bowling: `1`–`6`
+* Overs / wickets: `1`–`10`
+* Quit: `q`
+* Web version special commands:
+
+  * `history` — view match history
+  * `clearhistory` — delete saved history
+  * `play` — start new match after finishing
+
+---
+
+## ▶️ Running the Python Game
+
+### 1. Clone
+
+```bash
+git clone https://github.com/yourusername/yourrepo.git
+cd yourrepo
+```
+
+### 2. Quick batting-only mode:
+
+```bash
 python cricket.py
+```
 
+### 3. Full match mode:
 
-3. Run full match:
-
+```bash
 python c_match.py
+```
 
-
-
-> If you have both python and python3 installed, use python3 as needed.
-
-
-
+(Use `python3` if needed.)
 
 ---
 
-## 🧭 Controls & Input
-- Valid batting / bowling inputs: `1`, `2`, `3`, `4`, `5`, `6`
-- Valid overs: `1`–`10`
-- Valid wickets: `1`–`10`
-- Quit at any input prompt: `q`
+## 🎮 How the Game Works
+
+* **Batting:**
+  Enter a number (1–6).
+  If your number matches the bowler → **you’re out**.
+  Otherwise → you score that many runs.
+
+* **Bowling:**
+  Enter a number (1–6).
+  If it matches the computer’s shot → **wicket**.
+  Otherwise → computer scores.
+
+* **In a chase:**
+  You’ll see the required runs and remaining balls every ball.
+
+Game ends when:
+
+* Overs run out
+* All wickets fall
+* Or the target is chased
+
+A final match summary displays the outcome.
 
 ---
 
-## 🧩 Code Structure (quick overview)
-- `cricket.py`
-  - Core I/O helpers and a standalone batting mode (`play_game_bf`)
-  - Typing effect helper (`effect`) and clear screen helper (`clear`)
-  - Inputs for overs/wickets and toss helper
-- `c_match.py`
-  - Imports helpers from `cricket.py`
-  - Implements `play_over`, `play_game_1st`, `play_game_2nd` and the overall match flow
-  - Prints match summary and decides result/winner
+## 🖥 Example (Python Terminal)
 
----
+```
+Enter the number of overs you want to play for (1-10)
+>>> 2
+Enter the number of wickets you want to have (1-10)
+>>> 2
+Please enter heads [1] or tails [2]
+>>> 1
+The coin landed on: tails
+You have lost the toss!
+The computer chose to bat first.
 
-## 🖥 Example Gameplay (what you might see)
-
-    Hello and welcome to this simple cricket game!
-
-    -------------THE RULES-------------
-    At the toss, you can choose to bat or bowl first.
-    ...
-    Enter the number of overs you want to play for (1-10)
-    >>> 2
-    Enter the number of wickets you want to have (1-10)
-    >>> 2
-    Please enter heads [1] or tails [2] (or q to quit)
-    >>> 1
-    The coin landed on: tails
-    You have lost the toss!
-    The computer chose to bat first.
-
-    0-0 | 0.0
-    Your shot (1-6): 4
-    My number is 2!
-    You've scored 4 runs!
-
-    --- MATCH SUMMARY ---
-    First Innings: 42-2 (2.0 overs) (target set: 43)
-    Second Innings: 38-2 (2.0 overs)
-    The target has been successfully defended! The computer wins this match!
-    Defeat by 5 runs
-    Better luck next time!
+0-0 | 0.0
+Your bowl (1-6): 3
+My number is 5!
+Computer scored 5 runs!
+...
+--- MATCH SUMMARY ---
+First Innings: 42-2 (2.0 overs)
+Second Innings: 38-2 (2.0 overs)
+The computer wins by 5 runs.
+```
 
 ---
 
 ## ✅ Requirements
-- Python 3.x (no external packages required)
+
+* Python 3.x
+* No external packages needed
 
 ---
+
+If you'd like, I can also:
+
+* Add screenshots/GIFs of the web terminal
+* Add a “Quick Start” section for GitHub Pages
+* Add badges & styling (shields.io)
+* Add a gameplay diagram
+
+Just say the word.
