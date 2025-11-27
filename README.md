@@ -34,8 +34,8 @@ It features:
 * Fully mobile-optimized input
 * Exact same gameplay rules as the Python version
 
-> If your repo is published with GitHub Pages, it will load at:
-> `https://yourusername.github.io/your-repo-name/`
+> Load at:
+> `https://zxdr4gon.github.io/cricket/`
 
 ---
 
@@ -105,8 +105,8 @@ Full match simulation with:
 ### 1. Clone
 
 ```bash
-git clone https://github.com/yourusername/yourrepo.git
-cd yourrepo
+git clone https://github.com/zxdr4gon/cricket
+cd cricket
 ```
 
 ### 2. Quick batting-only mode:
