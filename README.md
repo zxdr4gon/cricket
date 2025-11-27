@@ -35,7 +35,7 @@ It features:
 * Exact same gameplay rules as the Python version
 
 > Load at:
-> `[https://zxdr4gon.github.io/cricket/](https://bit.ly/cterminal)`
+> `https://bit.ly/cterminal`
 
 ---
 
