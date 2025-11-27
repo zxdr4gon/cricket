@@ -182,12 +182,3 @@ The computer wins by 5 runs.
 * No external packages needed
 
 ---
-
-If you'd like, I can also:
-
-* Add screenshots/GIFs of the web terminal
-* Add a “Quick Start” section for GitHub Pages
-* Add badges & styling (shields.io)
-* Add a gameplay diagram
-
-Just say the word.
