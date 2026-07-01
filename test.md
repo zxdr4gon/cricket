@@ -26,6 +26,7 @@ The web version runs entirely in your browser via GitHub Pages. It features a cu
 │   ├── index.html    # CRT terminal layout & theme styling
 │   └── game.js       # Asynchronous JS command interpreter & engine bridge
 └── README.md         # Project documentation
+```
 ---
 
 ## ✨ Features
@@ -137,7 +138,7 @@ To avoid blocking the browser's main UI thread during sequential turn choices, t
 
 ## 👥 Credits & Authorship
 
-Developed with 🏏 passion by **Syed Zainulabideen Mahdi** ([@zxdr4gon](https://www.google.com/search?q=https://github.com/zxdr4gon)).
+Developed with passion by **Syed Zainulabideen Mahdi** ([@zxdr4gon](https://www.google.com/search?q=https://github.com/zxdr4gon)).
 
 Feel free to open an Issue or pull request if you want to contribute alternative interfaces, feature expansions, or game enhancements!
 
